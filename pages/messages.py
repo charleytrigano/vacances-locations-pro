@@ -256,12 +256,13 @@ def _show_whatsapp(df: pd.DataFrame):
             _apercu_html = st.session_state[_trad_key]
         st.markdown("**Aperçu :**")
         st.markdown(
-            "<style>.apercu-msg,.apercu-msg *{color:inherit!important}</style>",
+            "<style>#apercu-msg-box,#apercu-msg-box *{color:#F0F2F6!important;"
+            "opacity:1!important;-webkit-text-fill-color:#F0F2F6!important}</style>",
             unsafe_allow_html=True
         )
         with st.container(border=True):
             st.markdown(
-                f"<div class='apercu-msg'>{_apercu_html.replace(chr(10), '<br>')}</div>",
+                f"<div id='apercu-msg-box'>{_apercu_html.replace(chr(10), '<br>')}</div>",
                 unsafe_allow_html=True
             )
 

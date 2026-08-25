@@ -255,8 +255,15 @@ def _show_whatsapp(df: pd.DataFrame):
         if _trad_key in st.session_state and st.session_state[_trad_key]:
             _apercu_html = st.session_state[_trad_key]
         st.markdown("**Aperçu :**")
+        st.markdown(
+            "<style>.apercu-msg,.apercu-msg *{color:inherit!important}</style>",
+            unsafe_allow_html=True
+        )
         with st.container(border=True):
-            st.markdown(_apercu_html.replace(chr(10), '<br>'), unsafe_allow_html=True)
+            st.markdown(
+                f"<div class='apercu-msg'>{_apercu_html.replace(chr(10), '<br>')}</div>",
+                unsafe_allow_html=True
+            )
 
     tel_input = st.text_input("Numéro WhatsApp", value=telephone, placeholder="+33 6 12 34 56 78")
     st.markdown("---")

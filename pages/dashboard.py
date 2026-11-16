@@ -9,6 +9,7 @@ from services.proprietes_service import get_proprietes_dict, filter_df, get_prop
 
 
 
+
 def show():
     st.title("📊 Dashboard")
 

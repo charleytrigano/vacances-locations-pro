@@ -18,11 +18,13 @@ def fetch_all(force_refresh: bool = False) -> list[dict]:
     if sb is None:
         return _fallback()
 
-    try:
+        try:
         result = sb.table(TABLE).select("*").eq("actif", True).order("id").execute()
         _cache = result.data or []
         return _cache
-    except Exception:
+    except Exception as e:
+        import streamlit as st
+        st.error(f"🔴 Erreur fetch_all propriétés : {e}")
         return _fallback()
 
 
